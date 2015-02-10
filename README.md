@@ -78,3 +78,15 @@ The file system was used to store caches, but it is not recommended in productio
 |-----------|--------|-----|-----|------|--------|
 | before    | 66     | 59  | 72  | 3.3  | 67  |
 | after     | 38     | 30  | 37  | 4.0  | 37  |
+
+
+### Browser caching
+
+Methodology: Get the `If-None-Match` header from a development tool in a browser, and pass it in the Apache Bench command.
+
+i.e. `ab -k -n30 -H 'If-None-Match:"some-cache-digest-string"'` http://localhost:3000/courses
+
+|           | Mean   | Min | Max | Standard deviation | Median |
+|-----------|--------|-----|-----|------|--------|
+| before    | 38     | 30  | 37  | 4.0  | 37  |
+| after     | 6      | 5   | 11  | 1.3  | 5   |

@@ -9,20 +9,25 @@ class CoursesController < ApplicationController
   def index
     @courses = Course.page(params[:page]).includes(:teacher)
                .select(:id, :name, :teacher_id, :enrollments_count)
+
+    fresh_when etag: courses_cache_key
   end
 
   # GET /courses/1
   # GET /courses/1.json
   def show
+    fresh_when @course
   end
 
   # GET /courses/new
   def new
     @course = Course.new
+    fresh_when [ @course, form_authenticity_token ]
   end
 
   # GET /courses/1/edit
   def edit
+    fresh_when [ @course, form_authenticity_token ]
   end
 
   # POST /courses
