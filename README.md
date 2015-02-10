@@ -60,3 +60,11 @@ Counter-caching improved the performance by about 63%.
 |-----------|--------|-----|-----|------|--------|
 | before    | 68     | 62  | 76  | 3.8  | 68  |
 | after     | 69     | 62  | 75  | 3.6  | 69  |
+
+
+### Use select in ActiveRecord query
+
+|           | Mean   | Min | Max | Standard deviation | Median |
+|-----------|--------|-----|-----|------|--------|
+| before    | 68     | 58  | 92  | 6.7  | 67  |
+| after     | 67     | 62  | 73  | 3.2  | 66  |

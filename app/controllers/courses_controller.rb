@@ -6,6 +6,7 @@ class CoursesController < ApplicationController
   # GET /courses.json
   def index
     @courses = Course.page(params[:page]).includes(:teacher)
+               .select(:id, :name, :teacher_id, :enrollments_count)
   end
 
   # GET /courses/1
