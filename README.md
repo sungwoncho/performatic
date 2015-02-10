@@ -76,5 +76,5 @@ The file system was used to store caches, but it is not recommended in productio
 
 |           | Mean   | Min | Max | Standard deviation | Median |
 |-----------|--------|-----|-----|------|--------|
-| before    | 67     | 62  | 73  | 3.2  | 66  |
+| before    | 66     | 59  | 72  | 3.3  | 67  |
 | after     | 37     | 33  | 45  | 3.1  | 36  |
