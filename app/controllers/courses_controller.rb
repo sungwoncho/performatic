@@ -1,6 +1,7 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
   before_action :set_students, only: :show
+  before_action :production_disable, only: [:create, :update, :destroy]
 
   helper_method :courses_cache_key
 
@@ -78,6 +79,10 @@ class CoursesController < ApplicationController
 
     def set_students
       @students = @course.students.page(params[:page])
+    end
+
+    def production_disable
+      return if RAILS.env.production?
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

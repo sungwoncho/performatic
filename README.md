@@ -25,7 +25,9 @@ In `development.rb`, `config.cache_classes` is set to `true` in order to simulat
 Before each measurement, a couple of extra requests were fired to warm up the cache.
 
 Measuring tool   : [Apache Bench](http://httpd.apache.org/docs/2.2/programs/ab.html)
+
 Target path      : /courses
+
 Number of trials : 30
 
 #### Run your own experiment
