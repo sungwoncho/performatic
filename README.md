@@ -46,7 +46,7 @@ Number of trial: 30
 
 |           | Mean   | Min | Max | Standard deviation | Median |
 |-----------|--------|-----|-----|------|--------|
-| before    | 366    | 349 | 492 | 25.4 | 366 |
-| after     | 72     | 62  | 101 | 10.8 | 70  |
+| before    | 108    | 100 | 121 | 5.0  | 108 |
+| after     | 68     | 62  | 76  | 3.8  | 68  |
 
-Counter-caching improved the performance by about 80%.
+Counter-caching improved the performance by about 63%.
