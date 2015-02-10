@@ -66,5 +66,5 @@ Counter-caching improved the performance by about 63%.
 
 |           | Mean   | Min | Max | Standard deviation | Median |
 |-----------|--------|-----|-----|------|--------|
-| before    | 68     | 58  | 92  | 6.7  | 67  |
-| after     | 67     | 62  | 73  | 3.2  | 66  |
+| before    | 69     | 62  | 75  | 3.6  | 69  |
+| after     | 66     | 59  | 72  | 3.3  | 67  |
