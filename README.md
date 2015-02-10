@@ -50,3 +50,13 @@ Number of trial: 30
 | after     | 68     | 62  | 76  | 3.8  | 68  |
 
 Counter-caching improved the performance by about 63%.
+
+
+### Add Indices on foreign keys
+
+* Use lol_dba gem to detect missing indices
+
+|           | Mean   | Min | Max | Standard deviation | Median |
+|-----------|--------|-----|-----|------|--------|
+| before    | 72     | 62  | 101 | 10.8 | 70  |
+| after     | 68     | 58  | 92  | 6.7  | 67  |

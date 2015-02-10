@@ -53,6 +53,7 @@ end
 
 group :development do
   gem 'bullet'
+  gem 'lol_dba'
 end
 
 gem 'kaminari'
