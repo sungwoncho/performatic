@@ -18,6 +18,8 @@ This experiment benchmarks the performance by measuring response time while appl
 
 #### Methodology
 
+* The test is performed on a simple classroom app using a scaffold. [Preview](https://performatic.herokuapp.com/)
+
 * The response time was measured on localhost in order to minimize deviation due to network speed.
 
 * In `development.rb`, `config.cache_classes` is set to `true` in order to simulate production environment.
