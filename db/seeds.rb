@@ -34,7 +34,7 @@ when 'production'
     Course.create!(
       name: Faker::Company.catch_phrase,
       description: Faker::Lorem.paragraphs,
-      teacher_id: (1..500).to_a.sample
+      teacher_id: (1..5).to_a.sample
     )
   end
 
