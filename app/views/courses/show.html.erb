@@ -1,4 +1,21 @@
 <p id="notice"><%= notice %></p>
 
+<h1><%= @course.name %></h1>
+
+<ul>
+  <li>Instructor: <%= @course.teacher.name %></li>
+  <li>enrollments: <%= @course.enrollments.count %></li>
+</ul>
+
+<h2>Students</h2>
+<ul>
+  <% @students.each do |student| %>
+    <li><%= student.name %></li>
+  <% end %>
+</ul>
+
+<%= paginate @students %>
+
+
 <%= link_to 'Edit', edit_course_path(@course) %> |
 <%= link_to 'Back', courses_path %>

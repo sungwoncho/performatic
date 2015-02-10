@@ -5,3 +5,47 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+require "faker"
+
+puts "Creating students..."
+
+8000.times do
+  Student.create!(
+    name: Faker::Name.name
+  )
+end
+
+puts "Created #{Student.count} students."
+
+puts "Creating teachers..."
+
+500.times do
+  Teacher.create!(
+    name: Faker::Name.name
+  )
+end
+
+puts "Created #{Teacher.count} teachers."
+
+puts "Creating courses..."
+
+300.times do
+  Course.create!(
+    name: Faker::Company.catch_phrase,
+    description: Faker::Lorem.paragraphs,
+    teacher_id: (1..500).to_a.sample
+  )
+end
+
+puts "Created #{Course.count} courses."
+
+puts "Enrolling students... It might take up to 10 minutes."
+
+Student.all.each do |student|
+  Course.all.shuffle[1..10].each do |course|
+    student.courses << course
+  end
+end
+
+puts "Created #{Enrollment.count} enrollments."
