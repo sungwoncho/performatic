@@ -18,17 +18,17 @@ This experiment benchmarks the performance by measuring response time while appl
 
 #### Methodology
 
-The response time was measured on localhost in order to minimize deviation due to network speed.
+* The response time was measured on localhost in order to minimize deviation due to network speed.
 
-In `development.rb`, `config.cache_classes` is set to `true` in order to simulate production environment.
+* In `development.rb`, `config.cache_classes` is set to `true` in order to simulate production environment.
 
-Before each measurement, a couple of extra requests were fired to warm up the cache.
+* Before each measurement, a couple of extra requests were fired to warm up the cache.
 
-Measuring tool   : [Apache Bench](http://httpd.apache.org/docs/2.2/programs/ab.html)
+* Measuring tool   : [Apache Bench](http://httpd.apache.org/docs/2.2/programs/ab.html)
 
-Target path      : /courses
+* Target path      : /courses
 
-Number of trials : 30
+* Number of trials : 30
 
 #### Run your own experiment
 
