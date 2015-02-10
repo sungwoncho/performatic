@@ -34,3 +34,10 @@ Number of trial: 30
 *Time in milliseconds (ms)*
 
 ### N+1 Queries
+
+* Use Bullet gem to detect N+1 query.
+
+| N+1 query | Mean   | Min | Max | Standard deviation | Median |
+|-----------|--------|-----|-----|------|--------|
+| true      | 379    | 379 | 596 | 39.3 | 397 |
+| false     | 366    | 349 | 492 | 25.4 | 366 |
