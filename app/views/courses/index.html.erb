@@ -1,41 +1,43 @@
-<p id="notice"><%= notice %></p>
+<% cache courses_cache_key do %>
+  <p id="notice"><%= notice %></p>
 
-<h1>Listing Courses</h1>
+  <h1>Listing Courses</h1>
 
-<table>
-  <thead>
-    <tr>
-      <td>Name</td>
-      <td>Instructor</td>
-      <td>Enrollments</td>
-      <td>Actions</td>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @courses.each do |course| %>
+  <table>
+    <thead>
       <tr>
-        <td>
-          <%= course.name %>
-        </td>
-        <td>
-          <%= course.teacher.name %>
-        </td>
-        <td>
-          <%= course.enrollments_count %>
-        </td>
-        <td>
-          <%= link_to 'Show', course %>
-          <%= link_to 'Edit', edit_course_path(course) %>
-          <%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </td>
+        <td>Name</td>
+        <td>Instructor</td>
+        <td>Enrollments</td>
+        <td>Actions</td>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @courses.each do |course| %>
+        <tr>
+          <td>
+            <%= course.name %>
+          </td>
+          <td>
+            <%= course.teacher.name %>
+          </td>
+          <td>
+            <%= course.enrollments_count %>
+          </td>
+          <td>
+            <%= link_to 'Show', course %>
+            <%= link_to 'Edit', edit_course_path(course) %>
+            <%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= paginate @courses %>
+  <br>
 
-<%= link_to 'New Course', new_course_path %>
+  <%= paginate @courses %>
+
+  <%= link_to 'New Course', new_course_path %>
+<% end %>

@@ -2,6 +2,8 @@ class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
   before_action :set_students, only: :show
 
+  helper_method :courses_cache_key
+
   # GET /courses
   # GET /courses.json
   def index
@@ -76,5 +78,30 @@ class CoursesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def course_params
       params[:course]
+    end
+
+    def courses_cache_key
+      "courses/page-#{params[:page] || 1}-#{courses_count}-#{courses_max_updated_at}-" +
+        "teachers/#{teachers_count}-#{teachers_max_updated_at}"
+    end
+
+    def courses_count
+      Rails.cache.fetch('courses-count') { Course.count }
+    end
+
+    def courses_max_updated_at
+      Rails.cache.fetch('courses-max-updated-at') do
+        Course.maximum(:updated_at).try(:utc).try(:to_s, :number)
+      end
+    end
+
+    def teachers_count
+      Rails.cache.fetch('teachers-count') { Teacher.count }
+    end
+
+    def teachers_max_updated_at
+      Rails.cache.fetch('teachers-max-updated-at') do
+        Teacher.maximum(:updated_at).try(:utc).try(:to_s, :number)
+      end
     end
 end

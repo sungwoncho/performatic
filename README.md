@@ -68,3 +68,13 @@ Counter-caching improved the performance by about 63%.
 |-----------|--------|-----|-----|------|--------|
 | before    | 69     | 62  | 75  | 3.6  | 69  |
 | after     | 66     | 59  | 72  | 3.3  | 67  |
+
+
+### Fragment caching
+
+The file system was used to store caches, but it is not recommended in production.
+
+|           | Mean   | Min | Max | Standard deviation | Median |
+|-----------|--------|-----|-----|------|--------|
+| before    | 67     | 62  | 73  | 3.2  | 66  |
+| after     | 37     | 33  | 45  | 3.1  | 36  |
