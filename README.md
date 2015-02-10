@@ -84,7 +84,7 @@ The file system was used to store caches, but it is not recommended in productio
 
 Methodology: Get the `If-None-Match` header from a development tool in a browser, and pass it in the Apache Bench command.
 
-i.e. `ab -k -n30 -H 'If-None-Match:"some-cache-digest-string"'` http://localhost:3000/courses
+i.e. `ab -k -n30 -H 'If-None-Match:"some-cache-digest-string"' http://localhost:3000/courses`
 
 |           | Mean   | Min | Max | Standard deviation | Median |
 |-----------|--------|-----|-----|------|--------|
