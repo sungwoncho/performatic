@@ -20,7 +20,9 @@ This experiment benchmarks the performance by measuring response time while appl
 ### Version of Ruby
 
 Measuring tool : Apache Bench
+
 Target path    : /courses
+
 Number of trial: 30
 
 | Ruby version   | Mean   | Min | Max | Standard deviation | Median |
