@@ -37,7 +37,16 @@ Number of trial: 30
 
 * Use Bullet gem to detect N+1 query.
 
-| N+1 query | Mean   | Min | Max | Standard deviation | Median |
+|           | Mean   | Min | Max | Standard deviation | Median |
 |-----------|--------|-----|-----|------|--------|
 | true      | 120    | 109 | 146 | 8.7  | 117 |
 | false     | 108    | 100 | 121 | 5.0  | 108 |
+
+### Counter-cache
+
+|           | Mean   | Min | Max | Standard deviation | Median |
+|-----------|--------|-----|-----|------|--------|
+| before    | 366    | 349 | 492 | 25.4 | 366 |
+| after     | 72     | 62  | 101 | 10.8 | 70  |
+
+Counter-caching improved the performance by about 80%.
