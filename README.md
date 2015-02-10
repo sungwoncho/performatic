@@ -5,25 +5,46 @@ Rails 4 performance experiment using database query techniques and caching.
 
 ## Techniques
 
+* Use newer version of Ruby
 * Eliminate N+1 queries
 * Counter caches
-* Browser caching
 * Fragment caching
-* Russian doll caching
-* Use newer version of Ruby
+* Browser caching
 
 
 ## Experiment
 
 This experiment benchmarks the performance by measuring response time while applying different techniques.
 
+#### Methodology
+
+The response time was measured on localhost in order to minimize deviation due to network speed.
+
+In `development.rb`, `config.cache_classes` is set to `true` in order to simulate production environment.
+
+Before each measurement, a couple of extra requests were fired to warm up the cache.
+
+Measuring tool   : [Apache Bench](http://httpd.apache.org/docs/2.2/programs/ab.html)
+Target path      : /courses
+Number of trials : 30
+
+#### Run your own experiment
+
+This experiment is divided into different branches, so that you can see exactly what technique was used and how.
+
+1. Clone this repository `git clone git@github.com:sungwoncho/performatic.git`
+2. Run `rake db:migrate db:seed`
+3. Checkout different branches. (e.g. `git checkout -b 01_eager_loading origin/01_eager_loading`)
+4. Run `rails s`
+5. Run Apache Bench to measure the response time: (e.g. `ab -n30 http://localhost:3000/courses`)
+
+
+## Results
+
+The tables reveal statistics on the response time. Each performance enhancing techniques were applied in the order shown.
+
+
 ### Version of Ruby
-
-Measuring tool : Apache Bench
-
-Target path    : /courses
-
-Number of trial: 30
 
 | Ruby version   | Mean   | Min | Max | Standard deviation | Median |
 |----------------|--------|-----|-----|------|--------|
@@ -33,14 +54,16 @@ Number of trial: 30
 
 *Time in milliseconds (ms)*
 
+
 ### N+1 Queries
 
-* Use Bullet gem to detect N+1 query.
+* Use [Bullet gem](https://github.com/flyerhzm/bullet) to detect N+1 query.
 
 |           | Mean   | Min | Max | Standard deviation | Median |
 |-----------|--------|-----|-----|------|--------|
 | true      | 120    | 109 | 146 | 8.7  | 117 |
 | false     | 108    | 100 | 121 | 5.0  | 108 |
+
 
 ### Counter-cache
 
@@ -54,7 +77,7 @@ Counter-caching improved the performance by about 63%.
 
 ### Add Indices on foreign keys
 
-* Use lol_dba gem to detect missing indices
+* Use [lol_dba gem](https://github.com/plentz/lol_dba) to detect missing indices.
 
 |           | Mean   | Min | Max | Standard deviation | Median |
 |-----------|--------|-----|-----|------|--------|
