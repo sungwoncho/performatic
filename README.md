@@ -18,19 +18,12 @@ This experiment benchmarks the performance by measuring response time while appl
 
 #### Methodology
 
-* The test is performed on a simple classroom app using a scaffold. [Preview](https://performatic.herokuapp.com/)
-
-* The response time was measured on localhost in order to minimize deviation due to network speed.
+* The test is performed on a simple classroom app using a scaffold. The response time was measured on localhost in order to minimize deviation due to network speed. [Preview the app](https://performatic.herokuapp.com/)
 
 * In `development.rb`, `config.cache_classes` is set to `true` in order to simulate production environment.
 
-* Before each measurement, a couple of extra requests were fired to warm up the cache.
+* [Apache Bench](http://httpd.apache.org/docs/2.2/programs/ab.html) was used to measure the response time from `/courses` path. Before each measurement, a couple of extra requests were fired to warm up the cache. And Apache Bench made 30 requests and calculated the statistics.
 
-* Measuring tool   : [Apache Bench](http://httpd.apache.org/docs/2.2/programs/ab.html)
-
-* Target path      : /courses
-
-* Number of trials : 30
 
 #### Run your own experiment
 
@@ -117,3 +110,13 @@ i.e. `ab -k -n30 -H 'If-None-Match:"some-cache-digest-string"' http://localhost:
 |-----------|--------|-----|-----|------|--------|
 | before    | 38     | 30  | 37  | 4.0  | 37  |
 | after     | 6      | 5   | 11  | 1.3  | 5   |
+
+
+## Conclusion
+
+Some techniques proved to be very useful, while others produced only a minimal improvement. However, in more complex, real-life applications, all techniques will help.
+
+
+## Note
+
+[Brian Morearty](http://www.pluralsight.com/author/brian-morearty)'s course was helpful in creating this experiment.
